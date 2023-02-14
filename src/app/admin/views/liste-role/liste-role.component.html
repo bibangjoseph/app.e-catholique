@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+	<div class="d-block mb-4 mb-md-0">
+		<nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+			<ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+				<li class="breadcrumb-item">
+					<a routerLink="/dashboard">
+						<i class="bi bi-house-door icon icon-xxs"></i>
+					</a>
+				</li>
+				<li class="breadcrumb-item"><a routerLink="/admin/roles">Liste des Rôles</a></li>
+			</ol>
+		</nav>
+		<h2 class="h4">Liste des Rôles</h2>
+	</div>
+	<div class="btn-toolbar mb-2 mb-md-0">
+		<a data-bs-toggle="modal" data-bs-target="#add-role"
+			class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+			<i class="bi bi-plus icon icon-xs me-2"></i>
+			Nouveau Rôle
+		</a>
+	</div>
+</div>
+<div class="table-settings mb-4">
+	<div class="row align-items-center justify-content-between">
+		<div class="col col-md-6 col-lg-3 col-xl-4">
+			<div class="input-group me-2 me-lg-3 fmxw-400">
+				<span class="input-group-text">
+					<i class="bi bi-search icon icon-xs"></i>
+				</span>
+				<input type="text" class="form-control" placeholder="Recherche..." [(ngModel)]="searchText">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row" *ngIf="!isLoad">
+	<div class="col-lg-2 col-xl-3" *ngFor="let item of roles | filter: searchText">
+		<div class="card">
+			<div class="card-body text-center">
+				<h5> {{ item.denomination }} </h5>
+				<i class="bi bi-shield-check icon-md"></i>
+			</div>
+			<div class="card-footer">
+				<div class="btn-group">
+					<a class="btn btn-sm btn-outline-primary">
+						<i class="bi bi-search"></i>
+					</a>
+					<a class="btn btn-sm btn-outline-primary">
+						<i class="bi bi-pencil-square"></i>
+					</a>
+					<a class="btn btn-sm btn-outline-danger">
+						<i class="bi bi-trash"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-loading *ngIf="isLoad"></app-loading>
+
+
+<!-- Modals -->
+<app-modal-create-role></app-modal-create-role>

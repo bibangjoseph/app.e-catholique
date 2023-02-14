@@ -10,25 +10,33 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { LayoutComponent } from './core/template/layout/layout.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { MenuDashboardComponent } from './dashboard/menu/menu-dashboard/menu-dashboard.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MenuAdminComponent,
-    ConnexionComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgxPermissionsModule,
-    NgSelectModule,
+	declarations: [
+		AppComponent,
+		MenuAdminComponent,
+		ConnexionComponent,
+		LayoutComponent,
+		MenuDashboardComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		NgxPermissionsModule.forRoot(),
+		Ng2SearchPipeModule,
+		NgSelectModule,
 		FormsModule,
-    ReactiveFormsModule,
-    AdminModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+		ReactiveFormsModule,
+		AdminModule,
+		DashboardModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

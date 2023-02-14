@@ -1,0 +1,60 @@
+<div class="modal fade" id="add-role" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true"
+	data-bs-backdrop="static">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="h6 modal-title"> <i class="bi bi-shield-check"></i> Gestion d'un Rôle</h2>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form action="">
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-6 mb-3">
+							<label for="">Dénomination du Rôle : </label>
+							<input type="text" class="form-control" [(ngModel)]="denomination"
+								[ngModelOptions]="{standalone: true}">
+						</div>
+						<div class="col-12">
+							<label for="">Permissions {{ permissions.length }} : </label>
+							<div class="accordion" id="accordionPricing">
+								<div class="accordion-item" *ngFor="let module of modules">
+									<h2 class="accordion-header" id="headingOne">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse_' + module.id"
+											aria-expanded="false" aria-controls="collapseOne">
+											<b>{{ module.denomination }}</b>
+										</button>
+									</h2>
+									<div [id]="'collapse_' + module.id" class="accordion-collapse collapse"
+										aria-labelledby="headingOne" data-bs-parent="#accordionPricing">
+										<div class="accordion-body">
+											<div class="row">
+												<div class="col-4" *ngFor="let permission of module.permissions">
+													<div class="input-group mb-3">
+														<span class="input-group-text" id="basic-addon1">
+															<input class="form-check-input" type="checkbox"
+																[value]="permission.id" (change)="checkPerm($event)">
+														</span>
+														<input type="text" class="form-control"
+															[value]="permission.denomination" disabled>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" *ngIf="!isSubmit">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+					<button type="button" class="btn btn-secondary ms-auto" (click)="addRole()">Valider</button>
+				</div>
+				<div class="modal-footer" *ngIf="isSubmit">
+					<button type="button" disabled class="btn btn-secondary">Chargement...</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
