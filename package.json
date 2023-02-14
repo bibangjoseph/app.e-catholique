@@ -6,6 +6,12 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "create-package": "node commands/package.js",
+    "create-page": "node commands/page.js",
+    "create-service": "node commands/service.js",
+    "create-component": "node commands/composant.js",
+    "create-partial": "node commands/partials.js",
+    "create-interface": "node commands/interface.js",
     "test": "ng test"
   },
   "private": true,
@@ -18,7 +24,14 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "@ng-select/ng-select": "^10.0.3",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "inquirer": "^9.1.4",
+    "jquery": "^3.6.3",
+    "ngx-permissions": "^14.0.0",
     "rxjs": "~7.8.0",
+    "shelljs": "^0.8.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
@@ -34,5 +47,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.9.4"
-  }
+  },
+  "type": "module"
 }
