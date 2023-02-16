@@ -5,3 +5,8 @@
 .modal-backdrop {
 	z-index: 1 !important;
 }
+
+.error-form {
+	color: rgb(222, 39, 39);
+	font-style: italic;
+}

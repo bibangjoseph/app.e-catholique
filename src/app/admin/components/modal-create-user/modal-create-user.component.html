@@ -1,63 +1,76 @@
-<div class="modal fade" id="add-user" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h2 class="h6 modal-title"> <i class="bi bi-person"></i> Gestion d'un Utilisateur</h2>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="">
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-6 mb-3">
-							<label for="">Nom(s) : </label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Prénom(s) : </label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Nom jeune fille : </label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Date de naissance : </label>
-							<input type="date" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Lieu de naissance : </label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Sexe : </label>
-							<select name="" id="" class="form-select">
-								<option value="H">Homme</option>
-								<option value="F">Femme</option>
-							</select>
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Email : </label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Matricule Solde : </label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="col-6 mb-3">
-							<label for="">Rôle : </label>
-							<select name="" id="" class="form-select">
-								<option value=""></option>
-								<option value=""></option>
-								<option value=""></option>
-							</select>
-						</div>
+<div class="modal-content">
+	<div class="modal-header">
+		<h2 class="h6 modal-title"> <i class="bi bi-person"></i> Gestion d'un Utilisateur</h2>
+	</div>
+	<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-6 mb-3">
+					<label for="">Nom(s) : </label>
+					<input type="text" class="form-control" formControlName="nom">
+					<div
+						*ngIf="userForm.controls['nom'].invalid && (userForm.controls['nom'].dirty || userForm.controls['nom'].touched)">
+						<span *ngIf="userForm.controls['nom'].errors.required" class="error-form">
+							Le nom est requis
+						</span>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary">Valider</button>
-					<button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Fermer</button>
+				<div class="col-6 mb-3">
+					<label for="">Prénom(s) : </label>
+					<input type="text" class="form-control" formControlName="prenom">
+					<div
+						*ngIf="userForm.controls['prenom'].invalid && (userForm.controls['prenom'].dirty || userForm.controls['prenom'].touched)">
+						<span *ngIf="userForm.controls['prenom'].errors.required" class="error-form">
+							Le prénom est requis
+						</span>
+					</div>
 				</div>
-			</form>
+				<div class="col-6 mb-3">
+					<label for="">Date de naissance : </label>
+					<input type="date" class="form-control" formControlName="date_naissance">
+					<div
+						*ngIf="userForm.get('date_naissance').invalid && (userForm.get('date_naissance').dirty || userForm.get('date_naissance').touched)">
+						<span *ngIf="userForm.get('date_naissance')?.errors.required" class="error-form">
+							La date de naissance est requise
+						</span>
+					</div>
+				</div>
+				<div class="col-6 mb-3">
+					<label for="">Sexe : </label>
+					<select class="form-select" formControlName="sexe">
+						<option value="H">Homme</option>
+						<option value="F">Femme</option>
+					</select>
+				</div>
+				<div class="col-6 mb-3">
+					<label for="">Email : </label>
+					<input type="text" class="form-control" formControlName="email">
+					<div
+						*ngIf="userForm.get('email').invalid && (userForm.get('email').dirty || userForm.get('email').touched)">
+						<span *ngIf="userForm.get('email')?.errors.required" class="error-form">
+							L'adresse email est requise
+						</span>
+						<span *ngIf="userForm.get('email')?.errors.email" class="error-form">
+							L'adresse email n'est pas valide
+						</span>
+					</div>
+				</div>
+				<div class="col-6 mb-3">
+					<label for="">Rôle : </label>
+					<ng-select [items]="roles" bindLabel="denomination" bindValue="id" formControlName="role_id">
+					</ng-select>
+					<div
+						*ngIf="userForm.get('role_id').invalid && (userForm.get('role_id').dirty || userForm.get('role_id').touched)">
+						<span *ngIf="userForm.get('role_id')?.errors.required" class="error-form">
+							Un rôle est requis
+						</span>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary" (click)="close()">Fermer</button>
+			<button type="submit" class="btn btn-secondary ms-auto">Valider</button>
+		</div>
+	</form>
 </div>

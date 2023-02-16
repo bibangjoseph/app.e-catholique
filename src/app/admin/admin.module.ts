@@ -11,6 +11,7 @@ import { ModalCreateUserComponent } from './components/modal-create-user/modal-c
 import { ModalCreateRoleComponent } from './components/modal-create-role/modal-create-role.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ModalUpdateRoleComponent } from './components/modal-update-role/modal-update-role.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -20,13 +21,14 @@ import { ModalUpdateRoleComponent } from './components/modal-update-role/modal-u
 		ModalCreateUserComponent,
 		ModalCreateRoleComponent,
 		LoadingComponent,
-  ModalUpdateRoleComponent
+		ModalUpdateRoleComponent
 	],
 	imports: [
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule,
 		Ng2SearchPipeModule,
+		NgSelectModule,
 		NgxPermissionsModule.forRoot(),
 		AdminRoutingModule
 	]

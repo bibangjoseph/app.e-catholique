@@ -13,8 +13,7 @@
 		<h2 class="h4">Liste des Utilisateurs</h2>
 	</div>
 	<div class="btn-toolbar mb-2 mb-md-0">
-		<a data-bs-toggle="modal" data-bs-target="#add-user"
-			class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+		<a (click)="addUser()" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
 			<i class="bi bi-person-add icon icon-xs me-2"></i>
 			Nouvel Utilisateur
 		</a>
@@ -24,5 +23,3 @@
         </div> -->
 	</div>
 </div>
-
-<app-modal-create-user></app-modal-create-user>

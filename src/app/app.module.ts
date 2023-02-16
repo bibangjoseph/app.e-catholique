@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 		NgxPermissionsModule.forRoot(),
 		Ng2SearchPipeModule,
 		NgSelectModule,
+		NgSelectModule,
 		FormsModule,
 		NgbModule,
 		ReactiveFormsModule,
