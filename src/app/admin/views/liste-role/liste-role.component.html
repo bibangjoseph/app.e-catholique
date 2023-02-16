@@ -13,8 +13,7 @@
 		<h2 class="h4">Liste des Rôles</h2>
 	</div>
 	<div class="btn-toolbar mb-2 mb-md-0">
-		<a data-bs-toggle="modal" data-bs-target="#add-role"
-			class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+		<a (click)="addRole()" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
 			<i class="bi bi-plus icon icon-xs me-2"></i>
 			Nouveau Rôle
 		</a>
@@ -33,7 +32,7 @@
 	</div>
 </div>
 <div class="row" *ngIf="!isLoad">
-	<div class="col-lg-2 col-xl-3" *ngFor="let item of roles | filter: searchText">
+	<div class="col-lg-2 col-xl-2 mb-3" *ngFor="let item of roles | filter: searchText">
 		<div class="card">
 			<div class="card-body text-center">
 				<h5> {{ item.denomination }} </h5>
@@ -44,7 +43,7 @@
 					<a class="btn btn-sm btn-outline-primary">
 						<i class="bi bi-search"></i>
 					</a>
-					<a class="btn btn-sm btn-outline-primary">
+					<a class="btn btn-sm btn-outline-primary" (click)="updateRole(item)">
 						<i class="bi bi-pencil-square"></i>
 					</a>
 					<a class="btn btn-sm btn-outline-danger">
@@ -56,7 +55,3 @@
 	</div>
 </div>
 <app-loading *ngIf="isLoad"></app-loading>
-
-
-<!-- Modals -->
-<app-modal-create-role></app-modal-create-role>

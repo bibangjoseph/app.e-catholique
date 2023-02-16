@@ -10,6 +10,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { ModalCreateUserComponent } from './components/modal-create-user/modal-create-user.component';
 import { ModalCreateRoleComponent } from './components/modal-create-role/modal-create-role.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ModalUpdateRoleComponent } from './components/modal-update-role/modal-update-role.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 		ListeRoleComponent,
 		ModalCreateUserComponent,
 		ModalCreateRoleComponent,
-		LoadingComponent
+		LoadingComponent,
+  ModalUpdateRoleComponent
 	],
 	imports: [
 		CommonModule,

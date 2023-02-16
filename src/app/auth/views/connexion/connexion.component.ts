@@ -29,13 +29,8 @@ export class ConnexionComponent {
 				localStorage.setItem('userConnected', JSON.stringify(user));
 				window.location.href = '/dashboard';
 			} else {
-				if (typeof res.data === 'object') {
-					this.coreService.errorToastHttp(res.data)
-					this.isSubmit = false;
-				} else {
-					this.coreService.errorToast(res.data)
-					this.isSubmit = false;
-				}
+				this.coreService.errorToast(res.data)
+				this.isSubmit = false;
 			}
 		})
 	}

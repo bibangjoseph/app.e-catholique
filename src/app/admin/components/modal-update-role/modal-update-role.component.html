@@ -1,6 +1,6 @@
 <div class="modal-content">
 	<div class="modal-header">
-		<h2 class="h6 modal-title"> <i class="bi bi-shield-check"></i> Gestion d'un Rôle</h2>
+		<h2 class="h6 modal-title"> <i class="bi bi-shield-check"></i> Modifier d'un Rôle</h2>
 		<button type="button" class="btn-close" (click)="close()"></button>
 	</div>
 	<form action="">
@@ -28,9 +28,10 @@
 									<div class="row">
 										<div class="col-4" *ngFor="let permission of module.permissions">
 											<div class="input-group mb-3">
-												<span class="input-group-text" id="basic-addon1">
+												<span class="input-group-text">
 													<input class="form-check-input" type="checkbox"
-														[value]="permission.id" (change)="checkPerm($event)">
+														[checked]="permission.checked" [value]="permission.id"
+														(change)="checkPerm($event)">
 												</span>
 												<input type="text" class="form-control"
 													[value]="permission.denomination" disabled>
@@ -46,10 +47,10 @@
 		</div>
 		<div class="modal-footer" *ngIf="!isSubmit">
 			<button type="button" class="btn btn-primary" (click)="close()">Fermer</button>
-			<button type="button" class="btn btn-secondary ms-auto" (click)="addRole()">Valider</button>
+			<button type="button" class="btn btn-success ms-auto" (click)="updateRole()">Mettre à jour</button>
 		</div>
 		<div class="modal-footer" *ngIf="isSubmit">
-			<button type="button" disabled class="btn btn-secondary">Chargement...</button>
+			<button type="button" disabled class="btn btn-success">Chargement...</button>
 		</div>
 	</form>
 </div>

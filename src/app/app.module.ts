@@ -14,6 +14,7 @@ import { LayoutComponent } from './core/template/layout/layout.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { MenuDashboardComponent } from './dashboard/menu/menu-dashboard/menu-dashboard.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 		Ng2SearchPipeModule,
 		NgSelectModule,
 		FormsModule,
+		NgbModule,
 		ReactiveFormsModule,
 		AdminModule,
 		DashboardModule

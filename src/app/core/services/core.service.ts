@@ -14,15 +14,16 @@ export class CoreService {
 	successToast(msg: string) {
 		Swal.fire('Succès', msg, 'success')
 	}
-	errorToast(msg: string) {
-		Swal.fire('Erreur', msg, 'error')
-	}
-	errorToastHttp(msg: any) {
-		var msgAll = '';
-		msg.forEach((element: any) => {
-			msgAll += '<i>' + element + '</i><br/>';
-		});
-		Swal.fire('Erreur', msgAll, 'error')
+	errorToast(msg: any) {
+		if (typeof msg === 'object') {
+			var msgAll = '';
+			msg.forEach((element: any) => {
+				msgAll += '<i>' + element + '</i><br/>';
+			});
+			Swal.fire('Erreur', msgAll, 'error')
+		} else {
+			Swal.fire('Erreur', msg, 'error')
+		}
 	}
 
 
