@@ -31,7 +31,7 @@ export class CoreService {
 	// usuelles functions
 	async get(url: any) {
 		return new Promise((resolve) => {
-			this.http.get(this.api + url).subscribe((res) => {
+			this.http.get(this.api + url).subscribe((res: any) => {
 				resolve(res)
 			})
 		})
@@ -39,7 +39,7 @@ export class CoreService {
 
 	async getPaginate(url: any) {
 		return new Promise((resolve) => {
-			this.http.get(url).subscribe((res) => {
+			this.http.get(url).subscribe((res: any) => {
 				resolve(res)
 			})
 		})
@@ -47,21 +47,21 @@ export class CoreService {
 
 	async post(url: any, data: any) {
 		return new Promise((resolve) => {
-			this.http.post(this.api + url, data).subscribe((res) => {
+			this.http.post(this.api + url, data).subscribe((res: any) => {
 				resolve(res)
 			})
 		})
 	}
 	async put(url: any, data: any) {
 		return new Promise((resolve) => {
-			this.http.put(this.api + url, data).subscribe((res) => {
+			this.http.put(this.api + url, data).subscribe((res: any) => {
 				resolve(res)
 			})
 		})
 	}
 	async delete(url: any) {
 		return new Promise((resolve) => {
-			this.http.delete(this.api + url).subscribe((res) => {
+			this.http.delete(this.api + url).subscribe((res: any) => {
 				resolve(res)
 			})
 		})

@@ -15,6 +15,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { MenuDashboardComponent } from './dashboard/menu/menu-dashboard/menu-dashboard.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EgliseModule } from './eglise/eglise.module';
+import { MenuEgliseComponent } from './eglise/menu/menu-eglise/menu-eglise.component';
+import { GeosModule } from './geos/geos.module';
+import { MenuGeosComponent } from './geos/menu/menu-geos/menu-geos.component';
+import { PublicationModule } from './publication/publication.module';
+import { MenuPublicationComponent } from './publication/menu/menu-publication/menu-publication.component';
 
 
 @NgModule({
@@ -24,6 +30,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 		ConnexionComponent,
 		LayoutComponent,
 		MenuDashboardComponent,
+		MenuEgliseComponent,
+		MenuGeosComponent,
+		MenuPublicationComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -37,7 +46,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 		NgbModule,
 		ReactiveFormsModule,
 		AdminModule,
-		DashboardModule
+		DashboardModule,
+		EgliseModule,
+		GeosModule,
+		PublicationModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

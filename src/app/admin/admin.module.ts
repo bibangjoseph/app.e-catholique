@@ -33,6 +33,6 @@ import { DataTableComponent } from '../core/components/data-table/data-table.com
 		NgSelectModule,
 		NgxPermissionsModule.forRoot(),
 		AdminRoutingModule
-	]
+	],
 })
 export class AdminModule { }

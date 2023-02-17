@@ -7,4 +7,6 @@ export interface User {
 	permissions: string[],
 	role: object,
 	role_id: number,
+	eglise_id: number,
+	eglise: object,
 }

@@ -11,6 +11,7 @@ const routes: Routes = [
 		children: [
 			{ path: 'users', component: ListeUserComponent, title: 'Liste des Utilisateurs' },
 			{ path: 'roles', component: ListeRoleComponent, title: 'Liste des Rôles' },
+			{ path: '', redirectTo: 'users', pathMatch: 'full' },
 		]
 	}
 ];
