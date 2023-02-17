@@ -36,6 +36,15 @@ export class CoreService {
 			})
 		})
 	}
+
+	async getPaginate(url: any) {
+		return new Promise((resolve) => {
+			this.http.get(url).subscribe((res) => {
+				resolve(res)
+			})
+		})
+	}
+
 	async post(url: any, data: any) {
 		return new Promise((resolve) => {
 			this.http.post(this.api + url, data).subscribe((res) => {

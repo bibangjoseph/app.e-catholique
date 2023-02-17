@@ -9,7 +9,9 @@ import { ModalCreateUserComponent } from '../../components/modal-create-user/mod
 	styleUrls: ['./liste-user.component.scss']
 })
 export class ListeUserComponent implements OnInit {
-
+	result: any;
+	isLoad = true;
+	search = '';
 	constructor(private modal: NgbModal, private coreService: CoreService) { }
 
 	ngOnInit(): void {
@@ -22,7 +24,18 @@ export class ListeUserComponent implements OnInit {
 
 	getUsers() {
 		this.coreService.get('users').then((res: any) => {
-			console.log(res)
+			this.result = res;
+			this.isLoad = false;
 		})
+	}
+
+	paginate(url: any) {
+		if (url != null) {
+			this.isLoad = true;
+			this.coreService.getPaginate(url).then((res: any) => {
+				this.result = res;
+				this.isLoad = false;
+			})
+		}
 	}
 }

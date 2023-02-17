@@ -1,1 +1,31 @@
-<p>data-table works!</p>
+<div class="table table-responsive py-4">
+	<table class="table table-flush" id="datatable">
+		<thead class="thead-light">
+			<tr>
+				<th>Name</th>
+				<th>Position</th>
+				<th>Office</th>
+				<th>Age</th>
+				<th>Start date</th>
+				<th>Salary</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of rows">
+				<td>Tiger Nixon</td>
+				<td>System Architect</td>
+				<td>Edinburgh</td>
+				<td>61</td>
+				<td>2011/04/25</td>
+				<td>$320,800</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<nav aria-label="Page navigation example">
+	<ul class="pagination mb-0">
+		<li class="page-item" *ngFor="let link of links" [ngClass]="{'active': link.active === true}">
+			<a class="page-link" [href]="link.url">{{ link.label }}</a>
+		</li>
+	</ul>
+</nav>

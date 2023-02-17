@@ -12,6 +12,7 @@ import { ModalCreateRoleComponent } from './components/modal-create-role/modal-c
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ModalUpdateRoleComponent } from './components/modal-update-role/modal-update-role.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DataTableComponent } from '../core/components/data-table/data-table.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 		ModalCreateUserComponent,
 		ModalCreateRoleComponent,
 		LoadingComponent,
-		ModalUpdateRoleComponent
+		ModalUpdateRoleComponent,
+		DataTableComponent
 	],
 	imports: [
 		CommonModule,
