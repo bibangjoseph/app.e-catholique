@@ -9,6 +9,7 @@ const routes: Routes = [
 	{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate: [IsConnectedGuard] },
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [IsConnectedGuard] },
 	{ path: 'publication', loadChildren: () => import('./publication/publication.module').then(m => m.PublicationModule), canActivate: [IsConnectedGuard] },
+	{ path: 'eglise', loadChildren: () => import('./eglise/eglise.module').then(m => m.EgliseModule), canActivate: [IsConnectedGuard] },
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
