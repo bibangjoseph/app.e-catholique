@@ -13,3 +13,72 @@
 		<h2 class="h4">Création d'une Publication</h2>
 	</div>
 </div>
+<div class="card">
+	<div class="card-body">
+		<form [formGroup]="postForm" (submit)="createPost()">
+			<div class="row">
+				<div class="col-6">
+					<div class="row">
+						<div class="col-6 mb-3">
+							<label for="">Titre : </label>
+							<input type="text" class="form-control" formControlName="titre">
+						</div>
+						<div class="col-6 mb-3">
+							<label for="">Catégorie(s) : </label>
+							<ng-select [items]="categories" bindLabel="denomination" bindValue="id" [multiple]="true"
+								formControlName="categories">
+							</ng-select>
+						</div>
+						<div class="col-6 mb-3">
+							<label for="">Activer les commentaires : </label>
+							<select class="form-select" formControlName="active_comment">
+								<option value="Oui">Oui</option>
+								<option value="Non">Non</option>
+							</select>
+						</div>
+						<div class="col-6 mb-3">
+							<label for="">Publier : </label>
+							<select class="form-select" formControlName="visible">
+								<option value="Oui">Oui</option>
+								<option value="Non">Non</option>
+							</select>
+						</div>
+						<div class="col-12 mb-3">
+							<label for="">Description :</label>
+							<div class="NgxEditor__Wrapper">
+								<ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+								<ngx-editor [editor]="editor" formControlName="description" [disabled]="false"
+									[placeholder]="'Ecrivez votre publication ici...'"></ngx-editor>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="row">
+						<div class="col-6">
+							<label for="">Téléchargement des images : </label>
+							<input formControlName="medias" id="file" type="file" class="form-control" multiple=""
+								(change)="onFileChange($event)">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4 mt-4" *ngFor='let url of images, let i = index'>
+							<div class="card">
+								<img [src]="url" height="200px" width="100%">
+								<div class="card-body">
+									<a (click)="remove(i)" class="btn btn-sm btn-danger"><i class="bi bi-x"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 ml-auto">
+					<button *ngIf="!isSubmit" type="submit" class="btn btn-primary">Enregistrer</button>
+					<button *ngIf="isSubmit" class="btn btn-primary" disabled>Chargement</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
