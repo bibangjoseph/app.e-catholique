@@ -22,6 +22,8 @@ export class ModalCreateUserComponent implements OnInit {
 	submitForm() {
 
 	}
+
+
 	ngOnInit(): void {
 		this.userForm = this.fb.group({
 			nom: new FormControl('', [Validators.required]),

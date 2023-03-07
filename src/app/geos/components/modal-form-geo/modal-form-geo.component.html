@@ -1,0 +1,48 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h2 class="h6 modal-title"> <i class="bi bi-person"></i> Gestion d'un Utilisateur</h2>
+	</div>
+	<form [formGroup]="geoForm" (ngSubmit)="submitForm()">
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-12 mb-3">
+					<label for="">Dénomination : </label>
+					<input type="text" class="form-control" formControlName="denomination">
+					<div
+						*ngIf="geoForm.controls['denomination'].invalid && (geoForm.controls['denomination'].dirty || geoForm.controls['denomination'].touched)">
+						<span *ngIf="geoForm.controls['denomination'].errors.required" class="error-form">
+							Une dénomination est requise
+						</span>
+					</div>
+				</div>
+				<div class="col-12 mb-3">
+					<label for="">Type : </label>
+					<select class="form-select" formControlName="type">
+						<option value="pays">Pays</option>
+						<option value="province">Province</option>
+						<option value="ville">Ville</option>
+					</select>
+					<div
+						*ngIf="geoForm.controls['type'].invalid && (geoForm.controls['type'].dirty || geoForm.controls['type'].touched)">
+						<span *ngIf="geoForm.controls['type'].errors.required" class="error-form">
+							Un type est requis
+						</span>
+					</div>
+				</div>
+				<div class="col-12 mb-3">
+					<label for="">Indicatif : </label>
+					<input type="text" class="form-control" formControlName="indicatif">
+				</div>
+				<div class="col-12 mb-3">
+					<label for="">Parent : </label>
+					<ng-select [items]="roles" bindLabel="denomination" bindValue="id" formControlName="parent_id">
+					</ng-select>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary" (click)="close()">Fermer</button>
+			<button type="submit" [disabled]="geoForm.valid" class="btn btn-secondary ms-auto">Valider</button>
+		</div>
+	</form>
+</div>

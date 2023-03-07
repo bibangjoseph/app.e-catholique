@@ -7,10 +7,16 @@
 						<i class="bi bi-house-door icon icon-xxs"></i>
 					</a>
 				</li>
-				<li class="breadcrumb-item"><a routerLink="/eglise/eglises">Liste des Eglises</a></li>
+				<li class="breadcrumb-item"><a routerLink="/geo/geos">Liste des Localisaions</a></li>
 			</ol>
 		</nav>
-		<h2 class="h4">Liste des Eglises</h2>
+		<h2 class="h4">Liste des Localisation</h2>
+	</div>
+	<div class="btn-toolbar mb-2 mb-md-0">
+		<a (click)="add()" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+			<i class="bi bi-plus icon icon-xs me-2"></i>
+			Nouvelle localisation
+		</a>
 	</div>
 </div>
 
@@ -30,7 +36,8 @@
 					<tr>
 						<th>Dénomination</th>
 						<th>Type</th>
-						<th>Email</th>
+						<th>Indicatif</th>
+						<th>Parent</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -39,6 +46,7 @@
 						<td> {{ item.denomination }} </td>
 						<td> {{ item.type }} </td>
 						<td> {{ item.indicatif }} </td>
+						<td> {{ (item.parent != null) ? item.parent.denomination : '' }} </td>
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-sm btn-outline-primary"> <i class="bi bi-pencil-square"></i> </a>

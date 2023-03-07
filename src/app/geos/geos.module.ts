@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { ModalFormGeoComponent } from './components/modal-form-geo/modal-form-geo.component';
 
 
 @NgModule({
 	declarations: [
-		ListeGeosComponent
+		ListeGeosComponent,
+  ModalFormGeoComponent
 	],
 	imports: [
 		CommonModule,
