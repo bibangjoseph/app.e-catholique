@@ -2,20 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { CoreService } from 'src/app/core/services/core.service';
 
 @Component({
-	selector: 'app-liste-eglise',
-	templateUrl: './liste-eglise.component.html',
-	styleUrls: ['./liste-eglise.component.scss']
+	selector: 'app-liste-geos',
+	templateUrl: './liste-geos.component.html',
+	styleUrls: ['./liste-geos.component.scss']
 })
-export class ListeEgliseComponent implements OnInit {
+export class ListeGeosComponent implements OnInit {
 	isLoad = true;
 	result: any;
 	search = ''
+
 	constructor(private coreService: CoreService) {
 
 	}
 
 	ngOnInit(): void {
-		this.getEglises();
+		this.getGeos();
 	}
 
 	paginate(url: any) {
@@ -28,9 +29,8 @@ export class ListeEgliseComponent implements OnInit {
 		}
 	}
 
-
-	getEglises() {
-		this.coreService.get('eglises').then((res) => {
+	getGeos() {
+		this.coreService.get('geos').then((res) => {
 			this.result = res;
 			this.isLoad = false
 		})

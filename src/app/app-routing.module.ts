@@ -10,6 +10,7 @@ const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [IsConnectedGuard] },
 	{ path: 'publication', loadChildren: () => import('./publication/publication.module').then(m => m.PublicationModule), canActivate: [IsConnectedGuard] },
 	{ path: 'eglise', loadChildren: () => import('./eglise/eglise.module').then(m => m.EgliseModule), canActivate: [IsConnectedGuard] },
+	{ path: 'geo', loadChildren: () => import('./geos/geos.module').then(m => m.GeosModule), canActivate: [IsConnectedGuard] },
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

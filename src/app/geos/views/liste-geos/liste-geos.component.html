@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+	<div class="d-block mb-4 mb-md-0">
+		<nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+			<ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+				<li class="breadcrumb-item">
+					<a routerLink="/dashboard">
+						<i class="bi bi-house-door icon icon-xxs"></i>
+					</a>
+				</li>
+				<li class="breadcrumb-item"><a routerLink="/eglise/eglises">Liste des Eglises</a></li>
+			</ol>
+		</nav>
+		<h2 class="h4">Liste des Eglises</h2>
+	</div>
+</div>
+
+<div class="card">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-2">
+				Afficher {{ result?.data.length}} / {{ result?.total}}
+			</div>
+			<div class="col-2 ms-auto">
+				<input type="text" class="form-control" placeholder="Recherche..." [(ngModel)]="search">
+			</div>
+		</div>
+		<div class="table table-responsive py-4">
+			<table class="table table-flush" id="datatable">
+				<thead class="thead-light">
+					<tr>
+						<th>Dénomination</th>
+						<th>Type</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody *ngIf="!isLoad">
+					<tr *ngFor="let item of result?.data | filter: search">
+						<td> {{ item.denomination }} </td>
+						<td> {{ item.type }} </td>
+						<td> {{ item.indicatif }} </td>
+						<td>
+							<div class="btn-group">
+								<a class="btn btn-sm btn-outline-primary"> <i class="bi bi-pencil-square"></i> </a>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div *ngIf="isLoad">
+				<div class="col-12 text-center">
+					<div class="spinner-border spinner-border-sm" role="status">
+					</div>
+					Chargement...
+				</div>
+			</div>
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination mb-0">
+				<li class="page-item" *ngFor="let link of result?.links" [ngClass]="{'active': link.active === true}">
+					<button class="page-link" (click)="paginate(link.url)" [innerHTML]="link.label"></button>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
