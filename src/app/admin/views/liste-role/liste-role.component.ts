@@ -45,8 +45,10 @@ export class ListeRoleComponent implements OnInit {
 		const modal = this.modal.open(ModalUpdateRoleComponent, { size: 'lg', backdrop: 'static' })
 		modal.componentInstance.permissionsItems = item;
 		modal.result.catch((reason) => {
-			this.isLoad = true
-			this.getRoles()
+			if (reason === 2) {
+				this.isLoad = true
+				this.getRoles()
+			}
 		})
 	}
 

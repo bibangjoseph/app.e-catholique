@@ -47,7 +47,7 @@ export class ListPostComponent implements OnInit {
 	}
 
 	show(post: any) {
-		const modal = this.modal.open(ModalShowPostComponent, { size: 'xl', backdrop: 'static', scrollable: true });
+		const modal = this.modal.open(ModalShowPostComponent, { size: 'xl', backdrop: 'static' });
 		modal.componentInstance.post = post
 	}
 

@@ -49,7 +49,8 @@
 						</div>
 						<div class="btn-group">
 							<a (click)="show(post)" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></a>
-							<a class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
+							<a [routerLink]="'/publication/edit/' + post.id" class="btn btn-sm btn-outline-primary"><i
+									class="bi bi-pencil-square"></i></a>
 						</div>
 					</div>
 				</div>

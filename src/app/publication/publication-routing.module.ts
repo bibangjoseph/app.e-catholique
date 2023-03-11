@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from '../core/template/layout/layout.component';
 import { CreatePostComponent } from './views/create-post/create-post.component';
+import { EditPostComponent } from './views/edit-post/edit-post.component';
 import { ListPostComponent } from './views/list-post/list-post.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
 		children: [
 			{ path: 'posts', component: ListPostComponent, title: 'Liste des Publications' },
 			{ path: 'create', component: CreatePostComponent, title: "Création d'une Publications" },
+			{ path: 'edit/:id', component: EditPostComponent, title: "Modification d'une Publications" },
 			{ path: '', redirectTo: 'posts', pathMatch: 'full' },
 		]
 	}

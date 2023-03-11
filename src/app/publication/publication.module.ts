@@ -8,6 +8,7 @@ import { CreatePostComponent } from './views/create-post/create-post.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EditPostComponent } from './views/edit-post/edit-post.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 		ListPostComponent,
 		ModalShowPostComponent,
 		CreatePostComponent,
+  EditPostComponent,
 	],
 	imports: [
 		CommonModule,

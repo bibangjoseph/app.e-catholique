@@ -12,7 +12,6 @@ export class ModalShowPostComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log(this.post)
 	}
 	close() {
 		this.modal.dismiss()

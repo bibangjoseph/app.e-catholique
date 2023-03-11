@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Editor, Toolbar } from 'ngx-editor';
 import { User } from 'src/app/admin/models/user';
@@ -41,7 +41,7 @@ export class CreatePostComponent implements OnInit {
 		this.postForm = this.fb.group({
 			titre: new FormControl('', [Validators.required]),
 			description: new FormControl('', [Validators.required]),
-			categories: new FormControl('', [Validators.required, Validators.minLength(1)]),
+			categorie: new FormControl('', [Validators.required]),
 			medias: new FormControl('', [Validators.required, Validators.minLength(2)]),
 			visible: new FormControl('Non', [Validators.required]),
 			active_comment: new FormControl('Non', [Validators.required]),
@@ -62,7 +62,6 @@ export class CreatePostComponent implements OnInit {
 
 	createPost() {
 		this.postForm.value.medias = this.images;
-
 		if (this.postForm.valid) {
 			this.isSubmit = true;
 			this.coreService.post('publication', this.postForm.value).then((res: any) => {
