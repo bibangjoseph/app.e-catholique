@@ -9,6 +9,8 @@ import { NgxEditorModule } from 'ngx-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EditPostComponent } from './views/edit-post/edit-post.component';
+import { ListeAbonnesComponent } from './views/liste-abonnes/liste-abonnes.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { EditPostComponent } from './views/edit-post/edit-post.component';
 		ListPostComponent,
 		ModalShowPostComponent,
 		CreatePostComponent,
-  EditPostComponent,
+		EditPostComponent,
+		ListeAbonnesComponent,
 	],
 	imports: [
 		CommonModule,
@@ -63,6 +66,7 @@ import { EditPostComponent } from './views/edit-post/edit-post.component';
 			}
 		),
 		NgSelectModule,
+		Ng2SearchPipeModule,
 		PublicationRoutingModule
 	]
 })

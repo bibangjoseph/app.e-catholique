@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+	<div class="d-block mb-4 mb-md-0">
+		<nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+			<ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+				<li class="breadcrumb-item">
+					<a routerLink="/dashboard">
+						<i class="bi bi-house-door icon icon-xxs"></i>
+					</a>
+				</li>
+				<li class="breadcrumb-item"><a routerLink="/publication/abonnes">Liste des Abonnés</a></li>
+			</ol>
+		</nav>
+		<h2 class="h4">Liste des Abonnés</h2>
+	</div>
+</div>
+
+<div class="card">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-2 ms-auto">
+				<input type="text" class="form-control" placeholder="Recherche..." [(ngModel)]="search">
+			</div>
+		</div>
+		<div class="table table-responsive py-4">
+			<table class="table table-flush" id="datatable">
+				<thead class="thead-light">
+					<tr>
+						<th>Nom(s)</th>
+						<th>Prénom(s)</th>
+						<th>Téléphone</th>
+					</tr>
+				</thead>
+				<tbody *ngIf="!isLoad">
+					<tr *ngFor="let item of result | filter: search">
+						<td> {{ item.nom }} </td>
+						<td> {{ item.prenom }} </td>
+						<td> {{ item.telephone }} </td>
+					</tr>
+				</tbody>
+			</table>
+			<div *ngIf="isLoad">
+				<div class="row">
+					<div class="col-12 text-center">
+						Chargement...
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
